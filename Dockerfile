@@ -2,20 +2,36 @@ FROM rtfpessoa/ubuntu-jdk8:latest
 
 WORKDIR /opt
 
-RUN wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
-
-RUN tar -xvzf apache-maven-3.6.3-bin.tar.gz
-
-RUN mv apache-maven-3.6.3 maven
 
 ENV MAVEN_HOME=/opt/maven
-ENV PATH="${MAVEN_HOME}/bin:${PATH}"
-
-RUN wget https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.tar.gz
-
-RUN tar -xvzf apache-ant-1.10.5-bin.tar.gz
-
-RUN mv apache-ant-1.10.5 ant
-
 ENV ANT_HOME=/opt/ant
+ENV CATALINA_HOME=/opt/tomcat
+
+ENV PATH="${MAVEN_HOME}/bin:${PATH}"
 ENV PATH="${ANT_HOME}/bin:${PATH}"
+ENV PATH="${CATALINA_HOME}/bin:${PATH}"
+
+
+#DESCARGA Y EXTRACCIÓN DE BINARIOS (MAVEN-ANT-TOMCAT-DSPACE)
+
+RUN wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz &&\
+    wget https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.tar.gz &&\
+    wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.19/bin/apache-tomcat-9.0.19.tar.gz &&\
+    wget https://github.com/DSpace/DSpace/releases/download/dspace-6.3/dspace-6.3-src-release.tar.gz &&\
+    tar -xvzf apache-maven-3.6.3-bin.tar.gz &&\
+    tar -xvzf apache-ant-1.10.5-bin.tar.gz &&\
+    tar -xvzf apache-tomcat-9.0.19.tar.gz &&\
+    tar -xvzf dspace-6.3-src-release.tar.gz &&\
+    mv apache-maven-3.6.3 maven &&\
+    mv apache-ant-1.10.5 ant &&\
+    mv apache-tomcat-9.0.19 tomcat &&\
+    sed -i 's+dspace.dir = /dspace+dspace.dir = /opt/dspace+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    mkdir dspace
+
+EXPOSE 8080
+
+WORKDIR /opt/dspace-6.3-src-release/dspace
+
+RUN mvn package
+
+CMD ["catalina.sh", "run"]
