@@ -28,7 +28,6 @@ RUN wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-
     sed -i 's+dspace.dir = /dspace+dspace.dir = /opt/dspace+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
     mkdir dspace
 
-EXPOSE 8080
 
 WORKDIR /opt/dspace-6.3-src-release/dspace
 
@@ -37,5 +36,5 @@ RUN mvn package
 WORKDIR /opt/dspace-6.3-src-release/dspace/target/dspace-installer
 
 CMD ant fresh_install &&\
-    cp /opt/dspace/* /opt/tomcat/webapps/ &&\
-    source ${CATALINA_HOME}/bin/caralina.sh
+    cp -r /opt/dspace/* /opt/tomcat/webapps/ &&\
+    /bin/bash ${CATALINA_HOME}/bin/catalina.sh run
