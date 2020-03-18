@@ -34,4 +34,8 @@ WORKDIR /opt/dspace-6.3-src-release/dspace
 
 RUN mvn package
 
-CMD ["catalina.sh", "run"]
+WORKDIR /opt/dspace-6.3-src-release/dspace/target/dspace-installer
+
+CMD ant fresh_install &&\
+    cp /opt/dspace/* /opt/tomcat/webapps/ &&\
+    source ${CATALINA_HOME}/bin/caralina.sh
