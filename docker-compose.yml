@@ -10,5 +10,9 @@ services:
     - POSTGRES_USER=postgres
     - POSTGRES_PASSWORD=useradmin
 
+  dspace:
+    build: .
+    network_mode: "host"
+
 volumes:
   db-data:
