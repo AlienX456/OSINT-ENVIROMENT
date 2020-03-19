@@ -22,6 +22,10 @@ RUN wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-
     tar -xvzf apache-ant-1.10.5-bin.tar.gz &&\
     tar -xvzf apache-tomcat-9.0.19.tar.gz &&\
     tar -xvzf dspace-6.3-src-release.tar.gz &&\
+    rm apache-maven-3.6.3-bin.tar.gz &&\
+    rm apache-ant-1.10.5-bin.tar.gz &&\
+    rm apache-tomcat-9.0.19.tar.gz &&\
+    rm dspace-6.3-src-release.tar.gz &&\
     mv apache-maven-3.6.3 maven &&\
     mv apache-ant-1.10.5 ant &&\
     mv apache-tomcat-9.0.19 tomcat &&\
