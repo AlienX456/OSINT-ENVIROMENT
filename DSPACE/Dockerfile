@@ -14,6 +14,8 @@ ENV PATH="${CATALINA_HOME}/bin:${PATH}"
 
 #DESCARGA Y EXTRACCIÓN DE BINARIOS (MAVEN-ANT-TOMCAT-DSPACE)
 
+#Cambiar datos de configuración en Dspace.cfg
+
 RUN wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz &&\
     wget https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.tar.gz &&\
     wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.19/bin/apache-tomcat-9.0.19.tar.gz &&\
@@ -30,6 +32,16 @@ RUN wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-
     mv apache-ant-1.10.5 ant &&\
     mv apache-tomcat-9.0.19 tomcat &&\
     sed -i 's+dspace.dir = /dspace+dspace.dir = /opt/dspace+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    sed -i 's+dspace.hostname = localhost+dspace.hostname = ${dspace.baseUrl}+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    sed -i 's+dspace.ui = xmlui+dspace.ui = jspui+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    sed -i 's+mail.server = smtp.example.com+mail.server = smtp.gmail.com+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    sed -i 's+mail.server.username =+mail.server.username = osintudfjc@gmail.com+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    sed -i 's+mail.server.password =+mail.server.password = osintosintosint1+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    sed -i 's+mail.server.port = 25+mail.server.port = 587+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    sed -i 's+mail.from.address = dspace-noreply@myu.edu+mail.from.address = osintudfjc@gmail.com+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    sed -i 's+feedback.recipient = dspace-help@myu.edu+feedback.recipient = osintudfjc@gmail.com+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    sed -i 's+mail.admin = dspace-help@myu.edu+mail.admin = osintudfjc@gmail.com+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
+    sed -i 's+dspace.name = DSpace at My University+dspace.name = DSpace at Universidad Distrital FJC+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\   
     mkdir dspace
 
 
