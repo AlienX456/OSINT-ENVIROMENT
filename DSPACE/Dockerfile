@@ -1,4 +1,4 @@
-FROM rtfpessoa/ubuntu-jdk8:latest
+FROM openjdk:8-alpine
 
 WORKDIR /opt
 
@@ -52,8 +52,8 @@ RUN mvn package
 WORKDIR /opt/dspace-6.3-src-release/dspace/target/dspace-installer
 
 CMD ant fresh_install &&\
-    cp -r /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
-    /bin/bash ${CATALINA_HOME}/bin/catalina.sh run
+    ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
+    ${CATALINA_HOME}/bin/catalina.sh run
 
 
 # ON EXEC BY USING BASH RUN sh /opt/dspace/bin/dspace create-administrator and enter data
