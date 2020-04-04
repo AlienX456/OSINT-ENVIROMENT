@@ -31,6 +31,7 @@ RUN wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-
     mv apache-maven-3.6.3 maven &&\
     mv apache-ant-1.10.5 ant &&\
     mv apache-tomcat-9.0.19 tomcat &&\
+    sed -i 's+dspace.dir = /dspace+dspace.dir = /opt/dspace+g' dspace-6.3-src-release/dspace/config/dspace.cfg &&\
     mkdir dspace
 
 
@@ -44,18 +45,18 @@ RUN apk add --no-cache bash
 
 CMD ant fresh_install &&\
     ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
-    #cp /opt/dspace/config/dspace.cfg /opt/dspace/config/local.cfg &&\
-    #sed -i 's+dspace.dir = /dspace+dspace.dir = /opt/dspace+g' /opt/dspace/config/local.cf &&\
-    #sed -i 's+dspace.hostname = localhost+dspace.hostname = ${dspace.baseUrl}+g' /opt/dspace/config/local.cf &&\
-    #sed -i 's+dspace.ui = xmlui+dspace.ui = jspui+g' /opt/dspace/config/local.cf &&\
-    #sed -i 's+mail.server = smt.com+mail.server = smtp.gmail.com+g' /opt/dspace/config/local.cf &&\
-    #sed -i 's+mail.server.username =+mail.server.username = osintudfjc@gmail.com+g' /opt/dspace/config/local.cf &&\
-    #sed -i 's+mail.server.password =+mail.server.password = osintosintosint1+g' /opt/dspace/config/local.cf &&\
-    #sed -i 's+mail.server.port = 25+mail.server.port = 587+g' /opt/dspace/config/local.cf &&\
-    #sed -i 's+mail.from.address = dspace-noreply@myu.edu+mail.from.address = osintudfjc@gmail.com+g' /opt/dspace/config/local.cf &&\
-    #sed -i 's+feedback.recipient = dspace-help@myu.edu+feedback.recipient = osintudfjc@gmail.com+g' /opt/dspace/config/local.cf &&\
-    #sed -i 's+mail.admin = dspace-help@myu.edu+mail.admin = osintudfjc@gmail.com+g' /opt/dspace/config/local.cf &&\
-    #sed -i 's+dspace.name = DSpace at My University+dspace.name = DSpace at Universidad Distrital FJC+g' /opt/dspace/config/local.cf &&\
+    mv /opt/dspace/config/local.cfg.EXAMPLE /opt/dspace/config/local.cfg &&\
+    sed -i 's+dspace.dir = /dspace+dspace.dir = /opt/dspace+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+dspace.hostname = localhost+dspace.hostname = ${dspace.baseUrl}+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+dspace.ui = xmlui+dspace.ui = jspui+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+mail.server = smt.com+mail.server = smtp.gmail.com+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+mail.server.username =+mail.server.username = osintudfjc@gmail.com+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+mail.server.password =+mail.server.password = osintosintosint1+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+mail.server.port = 25+mail.server.port = 587+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+mail.from.address = dspace-noreply@myu.edu+mail.from.address = osintudfjc@gmail.com+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+feedback.recipient = dspace-help@myu.edu+feedback.recipient = osintudfjc@gmail.com+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+mail.admin = dspace-help@myu.edu+mail.admin = osintudfjc@gmail.com+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+dspace.name = DSpace at My University+dspace.name = DSpace at Universidad Distrital FJC+g' /opt/dspace/config/local.cfg &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
 # ON EXEC BY USING BASH RUN sh /opt/dspace/bin/dspace create-administrator and enter data
