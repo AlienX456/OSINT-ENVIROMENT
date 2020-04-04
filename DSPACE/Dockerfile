@@ -51,6 +51,8 @@ RUN mvn package
 
 WORKDIR /opt/dspace-6.3-src-release/dspace/target/dspace-installer
 
+RUN apk add --no-cache bash
+
 CMD ant fresh_install &&\
     ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
     ${CATALINA_HOME}/bin/catalina.sh run
