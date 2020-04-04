@@ -57,5 +57,4 @@ CMD ant fresh_install &&\
     ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
-
 # ON EXEC BY USING BASH RUN sh /opt/dspace/bin/dspace create-administrator and enter data
