@@ -48,6 +48,7 @@ RUN apk add --no-cache bash
 CMD ant fresh_install &&\
     ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
     mv /opt/dspace/config/local.cfg.EXAMPLE /opt/dspace/config/local.cfg &&\
+    chmod +x /init/*
     /init/configurarDspaceLocal.sh &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
