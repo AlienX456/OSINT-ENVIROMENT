@@ -53,9 +53,9 @@ CMD ant fresh_install &&\
     ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
     mv /opt/dspace/config/local.cfg.EXAMPLE /opt/dspace/config/local.cfg &&\
     cp /html/* /opt/dspace/config/ &&\
-    cp /img/logo_distri.png /opt/dspace/webapps/jspui/image/dspace-logo-only.png &&\
-    cp /img/logo_distri.gif /opt/dspace/webapps/jspui/image/logo.png &&\
-    cp /other/Messages.properties /opt/dspace/webapps/jspui/WEB-INF/classes/Messages.properties &&\
+    cp /img/logo_distri.png /opt/tomcat/webapps/jspui/image/dspace-logo-only.png &&\
+    cp /img/logo_distri.gif /opt/tomcat/webapps/jspui/image/logo.png &&\
+    cp /other/Messages.properties /opt/tomcat/webapps/jspui/WEB-INF/classes/Messages.properties &&\
     chmod 755 /init/* &&\
     sh /init/configurarDspaceLocal.sh &&\
     ${CATALINA_HOME}/bin/catalina.sh run
