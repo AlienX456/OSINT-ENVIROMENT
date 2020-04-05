@@ -54,7 +54,7 @@ CMD ant fresh_install &&\
     mv /opt/dspace/config/local.cfg.EXAMPLE /opt/dspace/config/local.cfg &&\
     cp /html/* /opt/dspace/config/ &&\
     cp /img/logo_distri.png /opt/tomcat/webapps/jspui/image/dspace-logo-only.png &&\
-    cp /img/logo_distri.gif /opt/tomcat/webapps/jspui/image/logo.png &&\
+    cp /img/logo_distri.gif /opt/tomcat/webapps/jspui/image/logo.gif &&\
     cp /other/Messages.properties /opt/tomcat/webapps/jspui/WEB-INF/classes/Messages.properties &&\
     chmod 755 /init/* &&\
     sh /init/configurarDspaceLocal.sh &&\
