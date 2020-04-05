@@ -1,7 +1,5 @@
 FROM openjdk:8-alpine
 
-COPY ["configurarDspaceLocal.sh","/init/"]
-
 WORKDIR /opt
 
 
@@ -45,11 +43,13 @@ WORKDIR /opt/dspace-6.3-src-release/dspace/target/dspace-installer
 
 RUN apk add --no-cache bash
 
+COPY ["configurarDspaceLocal.sh","/init/"]
+
 CMD ant fresh_install &&\
     ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
     mv /opt/dspace/config/local.cfg.EXAMPLE /opt/dspace/config/local.cfg &&\
     chmod +x /init/* &&\
-    /init/configurarDspaceLocal.sh &&\
+    source /init/configurarDspaceLocal.sh &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
 # ON EXEC BY USING BASH RUN sh /opt/dspace/bin/dspace create-administrator and enter data
