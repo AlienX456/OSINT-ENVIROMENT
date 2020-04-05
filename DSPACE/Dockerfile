@@ -44,17 +44,17 @@ WORKDIR /opt/dspace-6.3-src-release/dspace/target/dspace-installer
 RUN apk add --no-cache bash
 
 COPY ["configurarDspaceLocal.sh","/init/"]
-COPY ["news-top.html","news-side,html","/html/"]
+COPY ["news-top.html","news-side.html","/html/"]
 COPY ["logo_distri.png","/img/"]
 COPY ["Messages.properties","/other/"]
 
 CMD ant fresh_install &&\
     ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
     mv /opt/dspace/config/local.cfg.EXAMPLE /opt/dspace/config/local.cfg &&\
-	cp /html/* /opt/dspace/config/ &&\
-	cp /img/logo_distri.png /opt/dspace/webapps/jspui/dspace-logo-only.png &&\
-	cp /img/logo_distri.png /opt/dspace/webapps/jspui/logo.png &&\
-	cp /other/Messages.properties opt/dspace/webapps/jspui/WEB-INF/classes/Messages.properties &&\
+    cp /html/* /opt/dspace/config/ &&\
+    cp /img/logo_distri.png /opt/dspace/webapps/jspui/dspace-logo-only.png &&\
+    cp /img/logo_distri.png /opt/dspace/webapps/jspui/logo.png &&\
+    cp /other/Messages.properties /opt/dspace/webapps/jspui/WEB-INF/classes/Messages.properties &&\
     chmod 755 /init/* &&\
     sh /init/configurarDspaceLocal.sh &&\
     ${CATALINA_HOME}/bin/catalina.sh run
