@@ -60,7 +60,7 @@ CMD ant fresh_install &&\
     sed -i 's+#alert.recipient = ${mail.admin}+mail.smtp.starttls.enable = true+g' /opt/dspace/config/local.cfg &&\
     sed -i 's+#mail.extraproperties = mail.smtp.socketFactory.port=465+mail.extraproperties = mail.smtp.socketFactory.port=587+g' /opt/dspace/config/dspace.cfg &&\
     sed -i 's+#                       mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory+                        mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory+g' /opt/dspace/config/dspace.cfg &&\
-    sed -i 's+#                       mail.smtp.socketFactory.fallback=false+                        mail.smtp.socketFactory.fallback=false' /opt/dspace/config/dspace.cfg &&\
+    sed -i 's+#                       mail.smtp.socketFactory.fallback=false+                        mail.smtp.socketFactory.fallback=false+g' /opt/dspace/config/dspace.cfg &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
 # ON EXEC BY USING BASH RUN sh /opt/dspace/bin/dspace create-administrator and enter data
