@@ -1,6 +1,6 @@
 FROM openjdk:8-alpine
 
-COPY ["./configurarDspaceLocal.sh","/init/"]
+COPY ["configurarDspaceLocal.sh","/init/"]
 
 WORKDIR /opt
 
