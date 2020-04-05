@@ -57,7 +57,7 @@ CMD ant fresh_install &&\
     sed -i 's+#feedback.recipient = dspace-help@myu.edu+feedback.recipient = osintudfjc@gmail.com+g' /opt/dspace/config/local.cfg &&\
     sed -i 's+#mail.admin = dspace-help@myu.edu+mail.admin = osintudfjc@gmail.com+g' /opt/dspace/config/local.cfg &&\
     sed -i 's+dspace.name = DSpace at My University+dspace.name = DSpace en Universidad Distrital FJC+g' /opt/dspace/config/local.cfg &&\
-    sed -i 's+#alert.recipient = ${mail.admin}+mail.ssl.enable = true+g' /opt/dspace/config/local.cfg &&\
+    sed -i 's+#alert.recipient = ${mail.admin}+mail.smtp.starttls.enable = true+g' /opt/dspace/config/local.cfg &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
 # ON EXEC BY USING BASH RUN sh /opt/dspace/bin/dspace create-administrator and enter data
