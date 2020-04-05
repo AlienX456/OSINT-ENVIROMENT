@@ -1,4 +1,5 @@
 sed -i 's+dspace.dir = /dspace+dspace.dir = /opt/dspace+g' /opt/dspace/config/local.cfg
+sed -i 's+http://localhost:8080+http://200.69.103.29:26237+g' /opt/dspace/config/local.cfg
 sed -i 's+dspace.hostname = localhost+dspace.hostname = ${dspace.baseUrl}+g' /opt/dspace/config/local.cfg
 sed -i 's+dspace.ui = xmlui+dspace.ui = jspui+g' /opt/dspace/config/local.cfg
 sed -i 's+#mail.server = smtp.example.com+mail.server = smtp.gmail.com+g' /opt/dspace/config/local.cfg
