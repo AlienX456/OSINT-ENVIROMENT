@@ -58,8 +58,8 @@ CMD ant fresh_install &&\
     sed -i 's+#mail.admin = dspace-help@myu.edu+mail.admin = osintudfjc@gmail.com+g' /opt/dspace/config/local.cfg &&\
     sed -i 's+dspace.name = DSpace at My University+dspace.name = DSpace en Universidad Distrital FJC+g' /opt/dspace/config/local.cfg &&\
     echo 'mail.extraproperties = mail.smtp.socketFactory.port=587, \' >> /opt/dspace/config/dspace.cfg &&\
-    echo '                       mail.smtp.starttls.enable = true \' >> /opt/dspace/config/dspace.cfg &&\
-    echo '                       mail.smtp.socketFactory.fallback=false \' >> /opt/dspace/config/dspace.cfg &&\
+    echo '                       mail.smtp.starttls.enable = true, \' >> /opt/dspace/config/dspace.cfg &&\
+    echo '                       mail.smtp.socketFactory.fallback=false, \' >> /opt/dspace/config/dspace.cfg &&\
     echo '                       mail.smtp.starttls.required = true' >> /opt/dspace/config/dspace.cfg &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
