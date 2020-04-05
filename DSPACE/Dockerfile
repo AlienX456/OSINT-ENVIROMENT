@@ -57,11 +57,11 @@ CMD ant fresh_install &&\
     sed -i 's+#feedback.recipient = dspace-help@myu.edu+feedback.recipient = osintudfjc@gmail.com+g' /opt/dspace/config/local.cfg &&\
     sed -i 's+#mail.admin = dspace-help@myu.edu+mail.admin = osintudfjc@gmail.com+g' /opt/dspace/config/local.cfg &&\
     sed -i 's+dspace.name = DSpace at My University+dspace.name = DSpace en Universidad Distrital FJC+g' /opt/dspace/config/local.cfg &&\
-    sed -i 's+#alert.recipient = ${mail.admin}+mail.smtp.starttls.enable = true+g' /opt/dspace/config/local.cfg &&\
-    sed -i 's+#mail.extraproperties = mail.smtp.socketFactory.port=465+mail.extraproperties = mail.smtp.socketFactory.port=587+g' /opt/dspace/config/dspace.cfg &&\
-    sed -i 's+#                       mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory+                        mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory+g' /opt/dspace/config/dspace.cfg &&\
-    sed -i 's+#                       mail.smtp.socketFactory.fallback=false+                        mail.smtp.socketFactory.fallback=false+g' /opt/dspace/config/dspace.cfg &&\
-    echo "mail.smtp.ssl.enable = true" >> /opt/dspace/config/local.cfg &&\
+    echo 'mail.extraproperties = mail.smtp.socketFactory.port=587, \' >> /opt/dspace/config/dspace.cfg &&\
+    echo '                       mail.smtp.starttls.enable = true \' >> /opt/dspace/config/local.cfg &&\
+    echo '                       mail.smtp.socketFactory.fallback=false \' >> /opt/dspace/config/dspace.cfg &&\
+    echo '                       mail.smtp.starttls.required = true' >> /opt/dspace/config/dspace.cfg &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
+#    echo '                       mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory \' >> /opt/dspace/config/dspace.cfg &&\
 # ON EXEC BY USING BASH RUN sh /opt/dspace/bin/dspace create-administrator and enter data
