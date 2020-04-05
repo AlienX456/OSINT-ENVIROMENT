@@ -48,7 +48,7 @@ COPY ["configurarDspaceLocal.sh","/init/"]
 CMD ant fresh_install &&\
     ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
     mv /opt/dspace/config/local.cfg.EXAMPLE /opt/dspace/config/local.cfg &&\
-    chmod +x /init/* &&\
+    chmod 755 /init/* &&\
     source /init/configurarDspaceLocal.sh &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
