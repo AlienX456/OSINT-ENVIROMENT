@@ -1,4 +1,3 @@
-#!/bin/sh
 sed -i 's+dspace.dir = /dspace+dspace.dir = /opt/dspace+g' /opt/dspace/config/local.cfg
 sed -i 's+dspace.hostname = localhost+dspace.hostname = ${dspace.baseUrl}+g' /opt/dspace/config/local.cfg
 sed -i 's+dspace.ui = xmlui+dspace.ui = jspui+g' /opt/dspace/config/local.cfg
