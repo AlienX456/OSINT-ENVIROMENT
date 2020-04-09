@@ -19,6 +19,8 @@ RUN wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-
     wget https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.tar.gz &&\
     wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.19/bin/apache-tomcat-9.0.19.tar.gz &&\
     wget https://github.com/DSpace/DSpace/releases/download/dspace-6.3/dspace-6.3-src-release.tar.gz &&\
+    wget http://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-3.10.0.tar.gz &&\
+    tar -xvzf apache-jena-fuseki-3.10.0.tar.gz &&\
     tar -xvzf apache-maven-3.6.3-bin.tar.gz &&\
     tar -xvzf apache-ant-1.10.5-bin.tar.gz &&\
     tar -xvzf apache-tomcat-9.0.19.tar.gz &&\
@@ -46,13 +48,14 @@ COPY ["Presentacion/news-top.html","news-side.html","/html/"]
 COPY ["Presentacion/logo_distri.png","/img/"]
 COPY ["Presentacion/logo_distri.gif","/img/"]
 COPY ["conf/Messages.properties","/other/"]
-COPY ["conf/configurarDspaceLocal.sh","Presentacion/presentacionDSPACE.sh","/init/"]
+COPY ["conf/configurarFuseki.sh","conf/configurarDspaceLocal.sh","Presentacion/presentacionDSPACE.sh","/init/"]
 
 
 CMD ant fresh_install &&\
     chmod 755 /init/* &&\
     sh /init/configurarDspaceLocal.sh &&\
     sh /init/presentacionDSPACE.sh &&\
+    sh /init/configurarFuseki.sh &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
 # ON EXEC BY USING BASH RUN sh /opt/dspace/bin/dspace create-administrator and enter data
