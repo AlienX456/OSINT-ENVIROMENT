@@ -54,8 +54,8 @@ COPY ["conf/configurarFuseki.sh","conf/configurarDspaceLocal.sh","Presentacion/p
 CMD ant fresh_install &&\
     chmod 755 /init/* &&\
     sh /init/configurarDspaceLocal.sh &&\
-    sh /init/presentacionDSPACE.sh &&\
     sh /init/configurarFuseki.sh &&\
+    sh /init/presentacionDSPACE.sh &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
 # ON EXEC BY USING BASH RUN sh /opt/dspace/bin/dspace create-administrator and enter data
