@@ -44,7 +44,7 @@ WORKDIR /opt/dspace-6.3-src-release/dspace/target/dspace-installer
 
 RUN apk add --no-cache bash
 
-COPY ["Presentacion/news-top.html","news-side.html","/html/"]
+COPY ["Presentacion/news-top.html","Presentacion/news-side.html","/html/"]
 COPY ["Presentacion/logo_distri.png","/img/"]
 COPY ["Presentacion/logo_distri.gif","/img/"]
 COPY ["conf/Messages.properties","/other/"]
