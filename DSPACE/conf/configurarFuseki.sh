@@ -1,1 +1,1 @@
-cp /opt/apache-jena-fuseki-3.10.0/fuseki.war /opt/tomcat/webapps/fuseki
+cp /opt/apache-jena-fuseki-3.10.0/fuseki.war /opt/tomcat/webapps/
