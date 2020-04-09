@@ -46,7 +46,7 @@ COPY ["Presentacion/news-top.html","news-side.html","/html/"]
 COPY ["Presentacion/logo_distri.png","/img/"]
 COPY ["Presentacion/logo_distri.gif","/img/"]
 COPY ["conf/Messages.properties","/other/"]
-COPY ["conf/configurarDspaceLocal.sh","presentacionDSPACE.sh","/init/"]
+COPY ["conf/configurarDspaceLocal.sh","Presentacion/presentacionDSPACE.sh","/init/"]
 
 
 CMD ant fresh_install &&\
