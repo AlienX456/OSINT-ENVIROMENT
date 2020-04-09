@@ -14,7 +14,6 @@ ENV PATH="${CATALINA_HOME}/bin:${PATH}"
 
 #DESCARGA Y EXTRACCIÓN DE BINARIOS (MAVEN-ANT-TOMCAT-DSPACE)
 
-#Cambiar datos de configuración en Dspace.cfg
 
 RUN wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz &&\
     wget https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.5-bin.tar.gz &&\
@@ -43,21 +42,17 @@ WORKDIR /opt/dspace-6.3-src-release/dspace/target/dspace-installer
 
 RUN apk add --no-cache bash
 
-COPY ["configurarDspaceLocal.sh","/init/"]
-COPY ["news-top.html","news-side.html","/html/"]
-COPY ["logo_distri.png","/img/"]
-COPY ["logo_distri.gif","/img/"]
-COPY ["Messages.properties","/other/"]
+COPY ["Presentacion/news-top.html","news-side.html","/html/"]
+COPY ["Presentacion/logo_distri.png","/img/"]
+COPY ["Presentacion/logo_distri.gif","/img/"]
+COPY ["conf/Messages.properties","/other/"]
+COPY ["conf/configurarDspaceLocal.sh","presentacionDSPACE.sh","/init/"]
+
 
 CMD ant fresh_install &&\
-    ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/ &&\
-    mv /opt/dspace/config/local.cfg.EXAMPLE /opt/dspace/config/local.cfg &&\
-    cp /html/* /opt/dspace/config/ &&\
-    cp /img/logo_distri.png /opt/tomcat/webapps/jspui/image/dspace-logo-only.png &&\
-    cp /img/logo_distri.gif /opt/tomcat/webapps/jspui/image/logo.gif &&\
-    cp /other/Messages.properties /opt/tomcat/webapps/jspui/WEB-INF/classes/Messages.properties &&\
     chmod 755 /init/* &&\
     sh /init/configurarDspaceLocal.sh &&\
+    sh /init/presentacionDSPACE.sh &&\
     ${CATALINA_HOME}/bin/catalina.sh run
 
 # ON EXEC BY USING BASH RUN sh /opt/dspace/bin/dspace create-administrator and enter data

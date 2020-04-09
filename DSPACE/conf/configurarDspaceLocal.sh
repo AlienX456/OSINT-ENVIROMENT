@@ -1,3 +1,6 @@
+ln -s /opt/dspace/webapps/* /opt/tomcat/webapps/
+mv /opt/dspace/config/local.cfg.EXAMPLE /opt/dspace/config/local.cfg
+cp /other/Messages.properties /opt/tomcat/webapps/jspui/WEB-INF/classes/Messages.properties
 sed -i 's+dspace.dir = /dspace+dspace.dir = /opt/dspace+g' /opt/dspace/config/local.cfg
 sed -i 's+dspace.hostname = localhost+dspace.hostname = ${dspace.baseUrl}+g' /opt/dspace/config/local.cfg
 sed -i 's+dspace.ui = xmlui+dspace.ui = jspui+g' /opt/dspace/config/local.cfg
