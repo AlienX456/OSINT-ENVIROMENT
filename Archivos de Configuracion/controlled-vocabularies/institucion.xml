@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node id="InstitutionCategories" label="Institution Categories">
+	<isComposedBy>
+		<node id="L1" label="Universidad">
+		</node>
+		<node id="L2" label="Institucion Universitaria">
+		</node>
+		<node id="L3" label="Institucion tecnologica">
+		</node>
+		<node id="L4" label="Institucion tecnica">
+		</node>
+		<node id="L5" label="Institucion de Educacion para el Trabajo">
+		</node>
+		<node id="L6" label="Fundacion">
+		</node>
+		<node id="L7" label="Corporacion">
+		</node>
+		<node id="L8" label="Colegio">
+		</node>
+		<node id="L9" label="Escuela">
+		</node>
+		<node id="L10" label="Instituto">
+		</node>
+		<node id="L11" label="Otro">
+		</node>
+	</isComposedBy>
+</node>

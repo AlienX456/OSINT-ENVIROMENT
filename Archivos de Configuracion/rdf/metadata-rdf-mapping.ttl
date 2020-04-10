@@ -1,0 +1,786 @@
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:         <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix bibo:       <http://purl.org/ontology/bibo/> .
+@prefix foaf:  		<http://xmlns.com/foaf/0.1/> .
+@prefix parea:  	<http://parea.com/parea#> .
+@prefix lrmi: 		<http://purl.org/dcx/lrmi-terms/> .
+@prefix aiiso: 		<http://vocab.org/aiiso/schema#> .
+
+@prefix dm:         <http://digital-repositories.org/ontologies/dspace-metadata-mapping/0.2.0#> .
+
+@prefix :           <#> .
+
+
+
+:author
+   dm:metadataName "dc.contributor.author" ;
+    dm:creates [
+      dm:subject dm:DSpaceObjectIRI ;
+      dm:predicate dcterms:creator ;
+      dm:object dm:DSpaceValue ;
+    ] ;
+    .
+	
+:creator
+   dm:metadataName "dc.creator" ;
+   dm:condition "^((?!http://dx.doi.org/)(?!http://hdl.handle.net/)(?!http://localhost:8080/jspui/handle/)).*" ;
+   dm:creates [
+      dm:subject dm:DSpaceObjectIRI ;
+      dm:predicate dc:creator ;
+      dm:object [
+      a dm:ResourceGenerator ;
+      dm:pattern "$DSpaceValue" ;
+    ] ;
+    ] ;
+    .
+	
+:title
+  dm:metadataName "dc.title" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:title ;
+    dm:object dm:DSpaceValue ;
+  ] ;
+  .
+
+:titleAlternative
+  dm:metadataName "dc.title.alternative" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:alternative ;
+    dm:object dm:DSpaceValue ;
+  ] ;
+  .
+
+:uri
+  dm:metadataName "dc.description.uri" ;
+  dm:condition "^((?!http://dx.doi.org/)(?!http://hdl.handle.net/)(?!http://localhost:8080/jspui/handle/)).*" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate bibo:uri ;
+    dm:object [
+      a dm:ResourceGenerator ;
+      dm:pattern "$DSpaceValue" ;
+    ] ;
+  ];
+  .
+
+:created
+  dm:metadataName "dc.date.created" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:created ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:literalType xsd:dateTime ;
+    ] ;
+  ];
+  .
+  
+:advisor
+  dm:metadataName "dc.contributor.advisor" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dc:advisor ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:dspaceLanguageTag "true"^^xsd:boolean ;
+    ] ;
+  ];
+  .
+  
+
+:publisher
+  dm:metadataName "dc.publisher" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dc:publisher ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^Editors Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+
+
+:citation
+  dm:metadataName "dc.identifier.citation" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:bibliographicCitation ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:ispartofseries
+  dm:metadataName "dc.relation.ispartofseries" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:isPartOf ;
+    dm:object dm:DSpaceValue ;
+    ];
+    .
+
+
+:doi
+  dm:metadataName "dc.identifier.uri" ;
+  dm:condition "^http://dx.doi.org/.+" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate bibo:doi ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^http://dx.doi.org/(.*)$" ;
+        dm:replacement "doi:$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+
+:handle
+  dm:metadataName "dc.identifier.uri" ;
+  dm:condition "^http://hdl.handle.net/.*$" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate bibo:handle ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^http://hdl.handle.net/(.*)$" ;
+        dm:replacement "hdl:$1";
+      ];
+    ];
+  ];
+  .
+
+:localHandleURI
+  dm:metadataName "dc.identifier.uri" ;
+  dm:condition "^http://localhost:8080/jspui/handle/" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate bibo:handle ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^http://localhost:8080/jspui/handle/(.*)$" ;
+        dm:replacement "hdl:$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+
+:isbn
+  dm:metadataName "dc.identifier.isbn" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate bibo:issn ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+  
+:issn
+  dm:metadataName "dc.identifier.issn" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate bibo:issn ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:sici
+  dm:metadataName "dc.identifier.sici" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate bibo:sici ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:type
+  dm:metadataName "dc.type" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dc:type ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^TypeResource Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+
+
+:languageISO
+  dm:metadataName "dc.language.iso" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dc:language ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^(..)_(.*)$" ;
+        dm:replacement "$1-$2";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+  
+  
+ :iso
+  dm:metadataName "dc.language.iso" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dc:language ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^Language Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+  
+
+
+
+:language
+  dm:metadataName "dc.language" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dc:language ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^Language Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+
+
+:subject
+   dm:metadataName "dc.subject" ;
+    dm:creates [
+      dm:subject dm:DSpaceObjectIRI ;
+      dm:predicate dc:subject ;
+      dm:object dm:DSpaceValue ;
+    ] ;
+    .
+
+:abstract
+  dm:metadataName "dc.description.abstract" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:abstract ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:dspaceLanguageTag "true"^^xsd:boolean ;
+    ] ;
+  ];
+  .
+
+:sponsorship
+  dm:metadataName "dc.description.sponsorship" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dc:sponsorship ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:dspaceLanguageTag "true"^^xsd:boolean ;
+    ] ;
+  ];
+  .
+
+:description
+  dm:metadataName "dc.description" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:description ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:dspaceLanguageTag "true"^^xsd:boolean ;
+    ] ;
+  ];
+  .
+
+:accessioned
+  dm:metadataName "dc.date.accessioned" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:issued ;
+    dm:object dm:DSpaceValue ; # don't use xsd:date as we cannot assure format.
+  ];
+  .
+
+:available
+  dm:metadataName "dc.date.available" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:available ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:literalType xsd:dateTime ;
+    ] ;
+  ] ;
+  .
+
+:hasVersion
+  dm:metadataName "dc.relation.hasversion" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:hasVersion ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:modified
+  dm:metadataName "dc.date.updated" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:modified ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:literalType xsd:dateTime ;
+    ] ;
+  ];
+  .
+
+
+ :format
+  dm:metadataName "dc.format" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dc:format ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^Format Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+   
+
+:extent
+  dm:metadataName "dc.format.extent" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:extent ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:requires
+  dm:metadataName "dc.relation.requires";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:requires ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+  
+:minimunversion
+  dm:metadataName "dc.relation.minimunversion";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate parea:minimunversion ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:interactivitylevel
+  dm:metadataName "dc.description.interactivitylevel" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate parea:interactivitylevel ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^NInteractividad Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+
+:interactivitytype
+  dm:metadataName "dc.description.interactivitytype" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate lrmi:interactivitytype ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^TInteractividad Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+
+
+
+
+:rights
+  dm:metadataName "dc.rights" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dc:rights ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+
+:rightsURI
+  dm:metadataName "dc.rights.uri";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:rights ;
+    dm:object [
+      a dm:ResourceGenerator ;
+      dm:pattern "$DSpaceValue" ;
+    ];
+  ];
+  .
+
+:copyright
+  dm:metadataName "dc.date.copyright" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:dateCopyrighted ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:literalType xsd:dateTime ;
+    ] ;
+  ] ;
+  .
+  
+:cost
+  dm:metadataName "dc.rights.cost";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate parea:rightscost ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:audience
+  dm:metadataName "dc.description.audience" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:audience ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^Audience Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+  
+:typicalagerange
+  dm:metadataName "dc.description.typicalagerange" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate lrmi:typicalagerange ;
+    dm:object dm:DSpaceValue ;
+  ] ;
+  .
+  
+:educationlevel
+  dm:metadataName "dc.description.educationlevel" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:educationlevel ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^NEducativo Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+  
+    
+:annotationentity
+  dm:metadataName "dc.relation.annotationentity";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate parea:annotationentity ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:annotationdesc
+  dm:metadataName "dc.relation.annotationdesc";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate parea:annotationdesc ;
+    dm:object dm:DSpaceValue ;
+  ];
+  . 
+  
+:annotationdate
+  dm:metadataName "dc.relation.annotationdate" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:date ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:literalType xsd:dateTime ;
+    ] ;
+  ];
+  .
+
+:organization
+  dm:metadataName "dc.relation.organization" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate foaf:organization ;
+    dm:object dm:DSpaceValue ;
+  ] ;
+  .
+   
+ :group
+  dm:metadataName "dc.relation.group" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate foaf:group ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^Group Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+  
+:educationalsubject
+  dm:metadataName "dc.relation.educationalsubject" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate lrmi:educationalsubject ;
+    dm:object dm:DSpaceValue ;
+  ] ;
+  .
+
+:knowledgegrouping
+  dm:metadataName "dc.description.knowledgegrouping" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate aiiso:knowledgegrouping ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^CEducativo Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+
+
+:course
+  dm:metadataName "dc.relation.course" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate aiiso:course ;
+    dm:object dm:DSpaceValue ;
+  ] ;
+  .
+  
+:division
+  dm:metadataName "dc.relation.division" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate aiiso:division ;
+    dm:object dm:DSpaceValue ;
+  ] ;
+  .
+ 
+ :institution
+  dm:metadataName "dc.relation.institution" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate aiiso:institution ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^Institution Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+ 
+
+:contributor
+  dm:metadataName "dc.contributor" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:contributor ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:modifier [
+        dm:matcher "^Contributor Categories::(.*)$" ;
+        dm:replacement "$1";
+      ];
+      dm:pattern "$DSpaceValue";
+    ];
+  ];
+  .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:dateSubmitted
+  dm:metadataName "dc.date.submitted" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:dateSubmitted ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:literalType xsd:dateTime ;
+    ] ;
+  ];
+  .
+
+:date
+  dm:metadataName "dc.date" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dc:date ;
+    dm:object [
+      a dm:LiteralGenerator ;
+      dm:pattern "$DSpaceValue" ;
+      dm:literalType xsd:dateTime ;
+    ] ;
+  ];
+  .
+  
+
+:relationURI
+  dm:metadataName "dc.relation.uri";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:relation ;
+    dm:object [
+      a dm:ResourceGenerator ;
+      dm:pattern "$DSpaceValue" ;
+    ];
+  ];
+  .
+
+:isReferencedBy
+  dm:metadataName "dc.relation.isreferencedby";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:isReferencedBy ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:isReplacedBy
+  dm:metadataName "dc.relation.isreplacedby";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:isReplacedBy ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:isVersionOf
+  dm:metadataName "dc.relation.isversionof";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:isVersionOf ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:replaces
+  dm:metadataName "dc.relation.replaces";
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:replaces ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:references
+  dm:metadataName "dc.relation.isbasedon" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:references ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+
+:isFormatOf
+  dm:metadataName "dc.relation.isformatof" ;
+  dm:creates [
+    dm:subject dm:DSpaceObjectIRI ;
+    dm:predicate dcterms:isFormatOf ;
+    dm:object dm:DSpaceValue ;
+  ];
+  .
+

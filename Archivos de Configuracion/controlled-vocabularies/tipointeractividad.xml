@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node id="TipoInteractividadCategories" label="TInteractividad Categories">
+	<isComposedBy>
+		<node id="SCB11" label="Alta">
+		</node>
+		<node id="SCB12" label="Descriptiva">
+		</node>
+		<node id="SCB13" label="Mixta">
+		</node>
+		<node id="SCB14" label="Sin definir">
+		</node>
+	</isComposedBy>
+</node>

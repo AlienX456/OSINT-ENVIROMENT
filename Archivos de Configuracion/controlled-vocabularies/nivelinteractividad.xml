@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node id="NivelInteractividadCategories" label="NInteractividad Categories">
+	<isComposedBy>
+		<node id="SCB11" label="Muy Bajo">
+		</node>
+		<node id="SCB12" label="Bajo">
+		</node>
+		<node id="SCB13" label="Medio">
+		</node>
+		<node id="SCB14" label="Alto">
+		</node>
+		<node id="SCB15" label="Muy alto">
+		</node>
+	</isComposedBy>
+</node>

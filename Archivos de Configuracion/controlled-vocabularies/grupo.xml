@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node id="GroupCategories" label="Group Categories">
+	<isComposedBy>
+		<node id="L1" label="Facultad">
+		</node>
+		<node id="L2" label="Programa">
+		</node>
+		<node id="L3" label="Departamento">
+		</node>
+		<node id="L4" label="Grupo de Investigacion">
+		</node>
+		<node id="L5" label="Otro">
+		</node>
+	</isComposedBy>
+</node>

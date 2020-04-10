@@ -1,0 +1,44 @@
+En la ruta D:\dspace\config\
+esta el archivo "input-forms.xml"
+Este archivo lo puedes sobre escribir, no interfiere en nada con la configuracion
+eso si debes haber cargado la metadata antes, ingresando a Dspace
+y enactualizando el metadata registry, como te explique en el ultimo archivo de Word
+
+
+
+
+
+En la ruta D:\dspace\config\
+estan los archivos "dspace.cfg"  y "local.cfg"
+Estos si debes manejarlos con cuidado y no sobre escribirlos
+pues tiene toda la configuracion de Dspace
+Estos dos archiovos contiene lo mismo, pues es un respaldo
+Lo que puedes hacer es compararlos con el tuyo, y ver que elementos estan o no comentariados
+como te comente en dias pasados, hay cosas que me toco descomentariar
+como por ejemplo hay un par de lineas que me toco quitarles el comentariado
+para poder lanzar ventanas emergentes con categorias
+
+
+
+
+Dentro de la carpeta D:\dspace\config\
+sobre escribe todo el contenido de la carpeta "controlled-vocabularies"
+Con esto estarias adicionando todos los vocabularios controlados que cree para el modelo de datos
+
+
+
+Dentro de la carpeta D:\dspace\config\modules\
+sobre escribe todo el contenido de la carpeta "rdf"
+Con esto estarias adicionando todos los mapeos que cree para el modelo de datos
+
+
+Cuando sobre escribas la carpeta anterior, busca dentro de la carpeta "rdf"
+el archivo "fuseki-assembler.ttl", en este archivo en la linea 55
+esta la direccion del triplestore, la cual debes ajustar a la estructura de dicractorios que manejes
+regularente ea carpeta "triplestore" siempre debe estar dentro de la carpeta de "dspace"
+
+
+
+DEntro de la ruta "D:\apache-tomcat-9.0.19\webapps\jspui\WEB-INF\classes"
+encuentras el archivo "Messages.properties"
+Este archivo lo puedes sobre escribir, este archivo sol maneja los mensajes que aparecen en la interfaz

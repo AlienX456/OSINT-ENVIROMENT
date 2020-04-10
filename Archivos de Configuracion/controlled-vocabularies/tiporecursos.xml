@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node id="TypeCategories" label="TypeResource Categories">
+	<isComposedBy>
+		<node id="SCB11" label="Audio">
+		</node>
+		<node id="SCB12" label="Datos">
+		</node>
+		<node id="SCB13" label="Imagen">
+		</node>
+		<node id="SCB14" label="Texto">
+		</node>
+		<node id="SCB15" label="Video">
+		</node>
+		<node id="SCB16" label="Aplicacion">
+		</node>
+		<node id="SCB17" label="Evaluacion">
+		</node>
+		<node id="SCB18" label="Broadcast">
+		</node>
+		<node id="SCB19" label="Estudio de Caso">
+		</node>
+		<node id="SCB20" label="Curso">
+		</node>
+		<node id="SCB21" label="Leccion">
+		</node>
+		<node id="SCB22" label="Ejercicios y practicas">
+		</node>
+		<node id="SCB23" label="Juego Educativo">
+		</node>
+		<node id="SCB24" label="Actividad de Indagacion">
+		</node>
+		<node id="SCB25" label="Experimento">
+		</node>
+		<node id="SCB26" label="Exploracion">
+		</node>
+		<node id="SCB27" label="Glosario">
+		</node>
+		<node id="SCB28" label="Directrices">
+		</node>
+		<node id="SCB29" label="Actividad Abierta">
+		</node>
+		<node id="SCB30" label="Tesis">
+		</node>
+		<node id="SCB31" label="Proyecto">
+		</node>
+		<node id="SCB32" label="Material Promocional">
+		</node>
+		<node id="SCB33" label="Referencia">
+		</node>
+		<node id="SCB34" label="Modulo">
+		</node>
+		<node id="SCB35" label="Manual de Capacitacion">
+		</node>
+		<node id="SCB36" label="Tecnicas de monitoreo y evaluacion">
+		</node>
+		<node id="SCB37" label="Mejores Practicas">
+		</node>
+		<node id="SCB38" label="Juego de Rol">
+		</node>
+		<node id="SCB39" label="Simulacion">
+		</node>
+		<node id="SCB40" label="Libro de Texto">
+		</node>
+		<node id="SCB41" label="Herramienta">
+		</node>
+		<node id="SCB42" label="Sitio Web">
+		</node>
+		<node id="SCB43" label="Red Social">
+		</node>
+		<node id="SCB44" label="Plataforma para compartir imagenes">
+		</node>
+		<node id="SCB45" label="Plataforma de intercambio de referencias">
+		</node>
+		<node id="SCB46" label="Plataforma para compartir sonido">
+		</node>
+		<node id="SCB47" label="Plataforma de intercambio de videos">
+		</node>
+		<node id="SCB48" label="Weblog">
+		</node>
+		<node id="SCB49" label="Wiki">
+		</node>
+	</isComposedBy>
+</node>

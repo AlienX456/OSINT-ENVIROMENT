@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node id="FormatCategories" label="Format Categories">
+	<isComposedBy>
+		<node id="SCB11" label="CD-Rom - DVD">
+		</node>
+		<node id="SCB12" label="Documento en papel">
+		</node>
+		<node id="SCB13" label="Documento electronico">
+		</node>
+		<node id="SCB14" label="Compresion de archivos">
+		</node>
+		<node id="SCB15" label="Diapositivas">
+		</node>
+		<node id="SCB16" label="Imagenes animadas">
+		</node>
+		<node id="SCB17" label="Imagenes">
+		</node>
+		<node id="SCB18" label="Sitio web">
+		</node>
+		<node id="SCB19" label="Audio">
+		</node>
+		<node id="SCB20" label="Video">
+		</node>
+		<node id="SCB21" label="Animacion-multimedia">
+		</node>
+		<node id="SCB22" label="Otro">
+		</node>
+	</isComposedBy>
+</node>

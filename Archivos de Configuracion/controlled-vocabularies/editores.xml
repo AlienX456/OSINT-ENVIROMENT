@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node id="EditorsCategories" label="Editors Categories">
+	<isComposedBy>
+		<node id="SCB11" label="Pedro Rojas">
+		</node>
+		<node id="SCB12" label="Maria Ocampo">
+		</node>
+		<node id="SCB13" label="Juan Cespedes">
+		</node>
+		<node id="SCB14" label="Jhon Herrera">
+		</node>
+		<node id="SCB15" label="Calixto Zambrano">
+		</node>
+		<node id="SCB16" label="Juanita Cubides">
+		</node>
+		<node id="SCB17" label="Helena Mallarino">
+		</node>
+		<node id="SCB18" label="Maikol Meneses">
+		</node>
+		<node id="SCB19" label="Paulo Wilches">
+		</node>
+	</isComposedBy>
+</node>

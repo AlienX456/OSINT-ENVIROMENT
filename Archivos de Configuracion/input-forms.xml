@@ -1,0 +1,816 @@
+<?xml version="1.0"?>
+<!DOCTYPE input-forms SYSTEM "input-forms.dtd">
+
+
+<input-forms>
+
+ <!-- The form-map maps collection handles to forms. DSpace does not       -->
+ <!-- require a collection name to be unique, not even within a community. -->
+ <!-- DSpace does however ensure that each collection's handle is unique.  -->
+ <!-- Form-map provides the means to associate a unique collection name    -->
+ <!-- with a form. The form-map also provides the special handle "default" -->
+ <!-- (which is never a collection), here mapped to "traditional". Any     -->
+ <!-- collection which does not appear in this map will be associated with -->
+ <!-- the mapping for handle "default".                                    -->
+
+ <form-map>
+   <name-map collection-handle="default" form-name="traditional" />
+ </form-map>
+
+
+ <!-- The form-definitions map lays out the detailed definition of all the -->
+ <!-- submission forms. Each separate form set has a unique name as an     -->
+ <!-- attribute. This name matches one of the names in the form-map. One   -->
+ <!-- named form set has the name "traditional"; as this name suggests,    -->
+ <!-- it is the old style and is also the default, which gets used when    -->
+ <!-- the specified collection has no correspondingly-named form set.      -->
+ <!--                                                                      -->
+ <!-- Each form set contains an ordered set of pages; each page defines    -->
+ <!-- one submission metadata entry screen. Each page has an ordered list  -->
+ <!-- of field definitions, Each field definition corresponds to one       -->
+ <!-- metadata entry (a so-called row), which has a DC element name, a    -->
+ <!-- displayed label, a text string prompt which is called a hint, and    -->
+ <!-- an input-type. Each field also may hold optional elements: DC        -->
+ <!-- qualifier name, a repeatable flag, and a text string whose presence  -->
+ <!-- serves as a 'this field is required' flag.                           -->
+
+ <form-definitions>
+
+   <form name="traditional">
+     <page number="1">
+	 
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Titulo del Recurso</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el titulo principal del recurso.</hint>
+         <required>Debe ingresar el titulo principal del recurso.</required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier>alternative</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Titulo Alternativo</label>
+         <input-type>onebox</input-type>
+         <hint>Si el recurso tiene un titulo alternativo, por favor ingreselo aca.</hint>
+         <required></required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>uri</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>URL Externa del Recurso</label>
+         <input-type>onebox</input-type>
+		 <displayed-value>URI</displayed-value>
+         <stored-value>uri</stored-value>
+         <hint>Ingrese una URL (http://) externa donde se encuentra el recurso (Si aplica).</hint>
+         <required>Debe ingresar la URL del recurso.</required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>type</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Tipo de Recurso</label>
+         <input-type>onebox</input-type>
+         <hint>Seleccione el tipo(s) de recurso. Para seleccionar mas de un valor en la lista, mantenga presionada la tecla "CTRL" o "Shift".</hint>
+         <required>Debe ingresar el tipo del recurso.</required>
+		 <vocabulary closed="true">tiporecursos</vocabulary>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>language</dc-element>
+         <dc-qualifier>iso</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Language</label>
+         <input-type>onebox</input-type>
+         <hint>Seleccione el idioma principal del recurso. Si el idioma no aparece en la lista, seleccione 'Otro'. Si el recurso no tiene un idioma (por ejemplo, si se trata de un conjunto de datos o una imagen), seleccione 'N / A'..</hint>
+         <required>Debe ingresar el idioma del recurso.</required>
+		 <vocabulary closed="true">idiomas</vocabulary>
+       </field> 
+	   
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>author</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Autores</label>
+         <input-type>name</input-type>
+         <hint>Ingrese los nombres de los autores de este recurso.</hint>
+         <required>Debe ingresar el autor principal del recurso.</required>
+       </field>
+    	<field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>creator</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>URL del Autor Principal</label>
+         <input-type>onebox</input-type>
+		 <displayed-value>URI</displayed-value>
+         <stored-value>uri</stored-value>
+         <hint>Ingrese una URL (https://) del creador de este recurso.</hint>
+         <required>Debe ingresar la URL del autor principal del recurso.</required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>advisor</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Revisor</label>
+         <input-type>name</input-type>
+         <hint>Ingrese el nombre del revisor de este recurso.</hint>
+         <required></required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Editor</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el nombre del editor de este recurso.</hint>
+         <required></required>
+		 <vocabulary closed="true">editores</vocabulary>
+       </field>
+		<field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>created</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Fecha de Creacion del recurso</label>
+         <input-type>date</input-type>
+         <hint>Por favor indique la fecha de creacion del recurso.
+                        Puede dejar en blanco el dia y / o mes si no
+                        aplica.</hint>
+         <required>Debe ingresar al menos el año.</required>
+       </field>  
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>hasversion</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Version del Recurso</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese la Version del recurso.</hint>
+         <required>Debe ingresar la Version del Recurso.</required>
+       </field>
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>updated</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Fecha de Actualizacion del recurso</label>
+         <input-type>date</input-type>
+         <hint>Por favor indique la fecha de Actualizacion del recurso.
+                        Puede dejar en blanco el día y / o mes si no
+                        aplica.</hint>
+         <required>Debe ingresar al menos el año.</required>
+       </field>
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier>citation</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Citacion</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese la citacion estandard para este recurso - Autores, Titulo, Publicacion, ISSN, volumen, numero, pagina inicial - final.</hint>
+         <required></required>
+       </field>
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <!-- An input-type of qualdrop_value MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Identificadores</label>
+         <input-type value-pairs-name="common_identifiers">qualdrop_value</input-type>
+         <hint>Si el recurso tiene algun numero de identificacion o codigo asociado 
+ingrese los tipos y los números o codigos de identificacion.</hint>
+         <required></required>
+       </field>
+
+
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Otros Contribuyentes</label>
+         <input-type>onebox</input-type>
+         <hint>Seleccione los contribuyentes. Si no hay contribuyentes, seleccione 'N / A'..</hint>
+         <required></required>
+		 <vocabulary closed="true">contribuyentes</vocabulary>
+       </field>
+
+		
+     </page>
+
+     <page number="2">
+ 
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Palabras Claves</label>
+         <input-type>twobox</input-type>
+         <hint>Ingrese palabras clave o frases tematicas apropiadas. </hint>
+         <required>Debe ingresar las palabras claves asociadas al recurso.</required>
+         <vocabulary>srsc</vocabulary>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>format</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Formato de Recurso</label>
+         <input-type>onebox</input-type>
+         <hint>Seleccione el Formato del recurso.</hint>
+         <required>Debe ingresar el formato del recurso.</required>
+		 <vocabulary closed="true">formatos</vocabulary>
+       </field>  
+	   
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>format</dc-element>
+         <dc-qualifier>extent</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Tamaño (Gb, Mb) o duracion (Hr, Min o Seg)</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el tamaño (Gb, Mb), o la duracion del recurso (Hr, Min, Seg). </hint>
+         <required></required>
+       </field>
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Abstract</label>
+         <input-type>textarea</input-type>
+         <hint>Ingrese el Resumen o Abstract del recurso. </hint>
+         <required>Debe ingresar el resumen (abstract) del recurso.</required>
+       </field>
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>sponsorship</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Patrocinadores / Sponsors</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese los nombres de los patrocinadores y / o codigos de financiacion. </hint>
+         <required></required>
+       </field>
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Descripcion Educativa - Competencias</label>
+         <input-type>textarea</input-type>
+         <hint>Ingrese la descripcion educativa (intencionalidad educativa o meta a alcanzar a traves del contenido del recurso). </hint>
+         <required>Debe ingresar la descripcion educativa (competencias) del recurso.</required>
+       </field>
+    </page>
+	<page number="3">
+	<field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>requires</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Requerimientos de tipo tecnico</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el requerimiento tecnico (Software) principal para soportar instalacion o funcion del recurso. </hint>
+         <required></required>
+    </field>
+	
+	<field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>minimunversion</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Version Minima</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese la version minima del requerimiento tecnico, necesario para este recurso.</hint>
+         <required></required>
+    </field>
+	
+    <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>rights</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Copyright y Otras Restricciones</label>
+         <input-type>textarea</input-type>
+         <hint>Ingrese las restricciones de licenciamiento estipuladas para el recurso. </hint>
+         <required>Debe ingresar el Copyright del recurso.</required>
+     </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>rights</dc-element>
+         <dc-qualifier>uri</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>URL de los derechos del recurso</label>
+         <input-type>onebox</input-type>
+		 <displayed-value>URI</displayed-value>
+         <stored-value>uri</stored-value>
+         <hint>Ingrese una URL - https:// - de los derechos del recurso.</hint>
+         <required>Debe ingresar la descripcion de los derechos del recurso.</required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>rights</dc-element>
+         <dc-qualifier>cost</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Costo de los Derechos y Copyright</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el costo de los derechos y copyright del recurso - si aplica</hint>
+         <required></required>
+       </field>
+      <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>copyright</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Fecha de licenciamiento del recurso</label>
+         <input-type>date</input-type>
+         <hint>Por favor indique la fecha en que se asignaron los derechos del recurso.
+                        Puede dejar de lado el dia y / o mes si no
+                        aplica.</hint>
+         <required>Debe ingresar al menos el año.</required>
+       </field>
+	</page>
+	<page number="4">
+	    <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>audience</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Audiencia</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese la Audiencia a la cual va dirigida el recurso</hint>
+         <required>Debe ingresar la audiencia del recurso.</required>
+		 <vocabulary closed="true">audiencia</vocabulary>
+       </field>	   
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>typicalagerange</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Rango tipico de edad de la audiencia</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el rango tipico de edad de la Audiencia a la cual va dirigida el recurso</hint>
+         <required></required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>educationlevel</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Nivel Educativo</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el nivel educativo de la audiencia a la cual va dirigida el recurso</hint>
+         <required></required>
+		 <vocabulary closed="true">niveleducativo</vocabulary>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>knowledgegrouping</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Contexto Educativo</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el contexto educativo de la audiencia a la cual va dirigida el recurso</hint>
+         <required></required>
+		 <vocabulary closed="true">contextoeducativo</vocabulary>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>interactivitylevel</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Nivel de Interactividad</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el nivel de interactividad del recurso</hint>
+         <required></required>
+		 <vocabulary closed="true">nivelinteractividad</vocabulary>
+       </field>	   
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>interactivitytype</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Tipo de Interactividad</label>
+         <input-type>onebox</input-type>
+         <hint>Seleccione  el tipo de interactividad del recurso.</hint>
+         <required></required>
+		 <vocabulary closed="true">tipointeractividad</vocabulary>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>annotationentity</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Anotacion realizada: Entidad</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese la entidad que realiza la anotacion en el recurso</hint>
+         <required></required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>annotationdesc</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Anotacion realizada: Descripcion</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese la descripcion de la anotacion en el recurso</hint>
+         <required></required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>annotationdate</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Fecha en que se realizo la anotacion del recurso</label>
+         <input-type>date</input-type>
+         <hint>Por favor indique la fecha en que se realizo la anotacion del recurso.
+                        Puede dejar de lado el dia y / o mes si no
+                        aplica. Debe ingresar al menos el año.</hint>
+         <required></required>
+       </field>
+	  <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>institution</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Tipo de institucion donde se construyo el recurso</label>
+         <input-type>onebox</input-type>
+         <hint>Seleccione el tipo de entidad para la cual se construyo el recurso</hint>
+         <required>Debe ingresar el tipo de institucion.</required>
+		 <vocabulary closed="true">institucion</vocabulary>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>organization</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Nombre de la institucion donde se construyo el recurso</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el nombre de la entidad para la cual se construyo el recurso</hint>
+         <required>Debe ingresar el nombre de institucion</required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>group</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Tipo de grupo para el cual se construyo el recurso</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el nombre del grupo para el cual se construyo el recurso</hint>
+         <required></required>
+		 <vocabulary closed="true">grupo</vocabulary>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>division</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Nombre del Dpto, Programa o Facultad de la institucion donde se construyo el recurso</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el nombre del Dpto para la cual se construyo el recurso</hint>
+         <required></required>
+       </field>
+	   <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>educationalsubject</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Area (Dominio de conocmiento o taxon) al cual pertenece el recurso</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese el area de la tematica principal del recurso</hint>
+         <required>Debe ingresar el area en la que se circunscribe el recurso</required>
+       </field>
+		<field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>course</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Curso (Materia) al cual pertenece el recurso</label>
+         <input-type>onebox</input-type>
+         <hint>Ingrese la materia del recurso</hint>
+         <required></required>
+       </field>
+     </page>
+   </form>
+
+   <form name="one">
+     <page number="1">
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>author</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>One: Authors</label>
+         <input-type>name</input-type>
+         <hint>Enter the names of the authors of this item.</hint>
+         <required></required>
+       </field>
+      </page>
+   </form>
+ </form-definitions>
+
+
+ <!-- form-value-pairs populate dropdown and qualdrop-value lists.          -->
+ <!-- The form-value-pairs element holds child elements named 'value-pairs' -->
+ <!-- A 'value-pairs' element has a value-pairs-name and a dc-term          -->
+ <!-- attribute. The dc-term attribute specifies which to which Dublin Core -->
+ <!-- Term this set of value-pairs applies.                                 -->
+ <!--     Current dc-terms are: identifier-pairs, type-pairs, and           -->
+ <!--     language_iso-pairs. The name attribute matches a name             -->
+ <!--     in the form-map, above.                                           -->
+ <!-- A value-pair contains one 'pair' for each value displayed in the list -->
+ <!-- Each pair contains a 'displayed-value' element and a 'stored-value'   -->
+ <!-- element. A UI list displays the displayed-values, but the program     -->
+ <!-- stores the associated stored-values in the database.                  -->
+
+ <form-value-pairs>
+   <value-pairs value-pairs-name="common_identifiers" dc-term="identifier">
+     <pair>
+       <displayed-value>ISSN</displayed-value>
+       <stored-value>issn</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Other</displayed-value>
+       <stored-value>other</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>ISMN</displayed-value>
+       <stored-value>ismn</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Gov't Doc #</displayed-value>
+       <stored-value>govdoc</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>URI</displayed-value>
+       <stored-value>uri</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>ISBN</displayed-value>
+       <stored-value>isbn</stored-value>
+     </pair>
+   </value-pairs>
+<!-- 
+   <value-pairs value-pairs-name="common_types" dc-term="type">
+     <pair>
+       <displayed-value>Audio</displayed-value>
+       <stored-value>Audio</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Datos</displayed-value>
+       <stored-value>Datos</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Imagen</displayed-value>
+       <stored-value>Imagen</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Texto</displayed-value>
+       <stored-value>Texto</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Video</displayed-value>
+       <stored-value>Video</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Aplicacion</displayed-value>
+       <stored-value>Aplicacion</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Evaluacion</displayed-value>
+       <stored-value>Evaluacion</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Broadcast</displayed-value>
+       <stored-value>Broadcast</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Estudio de Caso</displayed-value>
+       <stored-value>Estudio de Caso</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Curso</displayed-value>
+       <stored-value>Curso</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Leccion</displayed-value>
+       <stored-value>Leccion</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Ejercicios y practicas</displayed-value>
+       <stored-value>Ejercicios y practicas</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Juego Educativo</displayed-value>
+       <stored-value>Juego Educativo</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Actividad de Indagacion</displayed-value>
+       <stored-value>Actividad de Indagacion</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Experimento</displayed-value>
+       <stored-value>Experimento</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Exploracion</displayed-value>
+       <stored-value>Exploracion</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Glosario</displayed-value>
+       <stored-value>Glosario</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Directrices</displayed-value>
+       <stored-value>Directrices</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Actividad Abierta</displayed-value>
+       <stored-value>Actividad Abierta</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Tesis</displayed-value>
+       <stored-value>Tesis</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Proyecto</displayed-value>
+       <stored-value>Proyecto</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Material Promocional</displayed-value>
+       <stored-value>Material Promocional</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Referencia</displayed-value>
+       <stored-value>Referencia</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Modulo</displayed-value>
+       <stored-value>Modulo</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Manual de Capacitacion</displayed-value>
+       <stored-value>Manual de Capacitacion</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Tecnicas de monitoreo y evaluacion</displayed-value>
+       <stored-value>Tecnicas de monitoreo y evaluacion</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Mejores Practicas</displayed-value>
+       <stored-value>Mejores Practicas</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Juego de Rol</displayed-value>
+       <stored-value>Juego de Rol</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Simulacion</displayed-value>
+       <stored-value>Simulacion</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Libro de Texto</displayed-value>
+       <stored-value>Libro de Texto</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Herramienta</displayed-value>
+       <stored-value>Herramienta</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Sitio Web</displayed-value>
+       <stored-value>Sitio Web</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Red Social</displayed-value>
+       <stored-value>Red Social</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Plataforma para compartir imagenes</displayed-value>
+       <stored-value>Plataforma para compartir imagenes</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Plataforma de intercambio de referencias</displayed-value>
+       <stored-value>Plataforma de intercambio de referencias</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Plataforma para compartir sonido</displayed-value>
+       <stored-value>Plataforma para compartir sonido</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Plataforma de intercambio de videos</displayed-value>
+       <stored-value>Plataforma de intercambio de videos</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Weblog</displayed-value>
+       <stored-value>Weblog</stored-value>
+     </pair>
+	 <pair>
+       <displayed-value>Wiki</displayed-value>
+       <stored-value>Wiki</stored-value>
+     </pair>
+   </value-pairs>
+
+
+<value-pairs value-pairs-name="common_formats" dc-term="format">
+     <pair>
+       <displayed-value>CD-Rom - DVD</displayed-value>
+       <stored-value>CD-Rom - DVD</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Documento en papel</displayed-value>
+       <stored-value>Documento en papel</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Documento electrónico</displayed-value>
+       <stored-value>Documento electrónico</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Compresión de archivos</displayed-value>
+       <stored-value>Compresión de archivos</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Diapositivas</displayed-value>
+       <stored-value>Diapositivas</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Imagenes animadas</displayed-value>
+       <stored-value>Imagenes animadas</stored-value>
+     </pair>
+	<pair>
+       <displayed-value>Imagenes</displayed-value>
+       <stored-value>Imagenes</stored-value>
+     </pair>
+	<pair>
+       <displayed-value>Sitio web</displayed-value>
+       <stored-value>Sitio web</stored-value>
+     </pair>
+	<pair>
+       <displayed-value>Audio</displayed-value>
+       <stored-value>Audio</stored-value>
+     </pair>
+	<pair>
+       <displayed-value>Video</displayed-value>
+       <stored-value>Video</stored-value>
+     </pair>
+	<pair>
+       <displayed-value>Animacion-multimedia</displayed-value>
+       <stored-value>Animacion-multimedia</stored-value>
+     </pair>
+	<pair>
+       <displayed-value>Otro</displayed-value>
+       <stored-value>Otro</stored-value>
+     </pair>
+   </value-pairs>
+
+
+
+   default language order: (from dspace 1.2.1)
+        "en_US", "en", "es", "de", "fr", "it", "ja", "zh", "other", ""
+     -->
+   <!-- <value-pairs value-pairs-name="common_iso_languages" dc-term="language_iso">
+   
+   <value-pairs value-pairs-name="contributors" dc-term="contributor">
+     <pair>
+       <displayed-value>uno</displayed-value>
+       <stored-value>uno</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>dos</displayed-value>
+       <stored-value>dos</stored-value>
+      </pair>
+     <pair>
+       <displayed-value>tres</displayed-value>
+       <stored-value>tres</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>cuatro</displayed-value>
+       <stored-value>cuatro</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>cinco</displayed-value>
+       <stored-value>cinco</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>seis</displayed-value>
+       <stored-value>seis</stored-value>
+     </pair>   
+   </value-pairs>
+   -->
+ </form-value-pairs>
+
+</input-forms>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node id="LanguagesCategories" label="Language Categories">
+	<isComposedBy>
+		<node id="L1" label="N/A">
+			<hasNote></hasNote>
+		</node>
+		<node id="L2" label="English (United States)">
+			<hasNote>en_US</hasNote>
+		</node>
+		<node id="L3" label="English">
+			<hasNote>en</hasNote>
+		</node>
+		<node id="L4" label="Spanish">
+			<hasNote>es</hasNote>
+		</node>
+		<node id="L5" label="German">
+			<hasNote>de</hasNote>
+		</node>
+		<node id="L6" label="French">
+			<hasNote>fr</hasNote>
+		</node>
+		<node id="L7" label="Italian">
+			<hasNote>it</hasNote>
+		</node>
+		<node id="L8" label="Japanese">
+			<hasNote>ja</hasNote>
+		</node>
+		<node id="L9" label="Chinese">
+			<hasNote>zh</hasNote>
+		</node>
+		<node id="L10" label="Turkish">
+			<hasNote>tr</hasNote>
+		</node>
+		<node id="L11" label="(Other)">
+			<hasNote>other</hasNote>
+		</node>
+	</isComposedBy>
+</node>

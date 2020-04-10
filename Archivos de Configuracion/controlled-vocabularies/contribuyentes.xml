@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node id="ContributorsCategories" label="Contributor Categories">
+	<isComposedBy>
+		<node id="C0" label="Contenido">
+			<isComposedBy>
+						<node id="C01" label="Proveedor - Catalina Rojas">
+							<hasNote>Teresa Rojas</hasNote>
+						</node>
+						<node id="C02" label="Experto - Michael Arcila">
+							<hasNote>Michael Perez</hasNote>
+						</node>
+			</isComposedBy>
+		</node>
+		<node id="C1" label="Diseño">
+			<isComposedBy>
+						<node id="C11" label="Validador Educativo - Teresa Rojas">
+							<hasNote>Teresa Rojas</hasNote>
+						</node>
+						<node id="C12" label="Diseño Instruccional - Michael Perez">
+							<hasNote>Michael Perez</hasNote>
+						</node>
+						<node id="C13" label="Guionista - Marta Perez">
+							<hasNote>Marta Perez</hasNote>
+						</node>
+			</isComposedBy>
+		</node>
+		<node id="C2" label="Implementacion">
+			<isComposedBy>
+						<node id="C21" label="Diseño Grafico - Juan Cotta">
+							<hasNote>Juan Cotta</hasNote>						
+					    </node>
+						<node id="C22" label="Licenciante - Luz Casal">
+							<hasNote>Luz Casal</hasNote>
+						</node>
+						<node id="C23" label="Implementador Tecnico - Sandra Ramos">
+							<hasNote>Sandra Ramos</hasNote>
+						</node>
+						<node id="C24" label="Vaidador Tecnico - Sandra Suescun">
+							<hasNote>Sandra Suescun</hasNote>
+						</node>
+			</isComposedBy>
+		</node>
+	</isComposedBy>
+</node>
