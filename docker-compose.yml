@@ -11,16 +11,16 @@ services:
     - POSTGRES_USER=dspace
     - POSTGRES_PASSWORD=dspace
 
-  dspace:
-    build: "./DSPACE/"
-    network_mode: "host"
-    depends_on: 
-      - postgresql
-    extra_hosts:
-      - "project-vinculaciondatoslod:127.0.0.1"
-    volumes:
-      - "dspace-data:/opt/dspace/assetstore" 
+#  dspace:
+#    build: "./DSPACE/"
+#    network_mode: "host"
+#    depends_on: 
+#      - postgresql
+#    extra_hosts:
+#     - "project-vinculaciondatoslod:127.0.0.1"
+#    volumes:
+#      - "dspace-data:/opt/dspace/assetstore" 
 
 volumes:
   db-data:
-  dspace-data:
+#  dspace-data:
