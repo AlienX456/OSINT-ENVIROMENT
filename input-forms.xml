@@ -44,19 +44,19 @@
          <dc-element>title</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Titulo del Recurso</label>
+         <label>Resource Title</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el titulo principal del recurso.</hint>
-         <required>Debe ingresar el titulo principal del recurso.</required>
+         <hint>Enter the main title of the resource.</hint>
+         <required>You must enter the main title of the resource.</required>
        </field>
 	   <field>
          <dc-schema>dc</dc-schema>
          <dc-element>title</dc-element>
          <dc-qualifier>alternative</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Titulo Alternativo</label>
+         <label>Alternative title</label>
          <input-type>onebox</input-type>
-         <hint>Si el recurso tiene un titulo alternativo, por favor ingreselo aca.</hint>
+         <hint>If the resource has an alternative title, please enter here.</hint>
          <required></required>
        </field>
 	   <field>
@@ -64,22 +64,22 @@
          <dc-element>description</dc-element>
          <dc-qualifier>uri</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>URL Externa del Recurso</label>
+         <label>External URL of the Resource</label>
          <input-type>onebox</input-type>
 		 <displayed-value>URI</displayed-value>
          <stored-value>uri</stored-value>
-         <hint>Ingrese una URL (http://) externa donde se encuentra el recurso (Si aplica).</hint>
-         <required>Debe ingresar la URL del recurso.</required>
+         <hint>Enter an external URL (http: //) where the resource is located (If applicable).</hint>
+         <required>You must enter the URL of the resource.</required>
        </field>
 	   <field>
          <dc-schema>dc</dc-schema>
          <dc-element>type</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Tipo de Recurso</label>
+         <label>Type of resource</label>
          <input-type>onebox</input-type>
-         <hint>Seleccione el tipo(s) de recurso. Para seleccionar mas de un valor en la lista, mantenga presionada la tecla "CTRL" o "Shift".</hint>
-         <required>Debe ingresar el tipo del recurso.</required>
+         <hint>Select the type (s) of resource. To select more than one value in the list, hold down "CTRL" or "Shift".</hint>
+         <required>You must enter the type of the resource.</required>
 		 <vocabulary closed="true">tiporecursos</vocabulary>
        </field>
 	   <field>
@@ -89,8 +89,8 @@
          <repeatable>true</repeatable>
          <label>Language</label>
          <input-type>onebox</input-type>
-         <hint>Seleccione el idioma principal del recurso. Si el idioma no aparece en la lista, seleccione 'Otro'. Si el recurso no tiene un idioma (por ejemplo, si se trata de un conjunto de datos o una imagen), seleccione 'N / A'..</hint>
-         <required>Debe ingresar el idioma del recurso.</required>
+         <hint>Select the primary language of the resource. If the language does not appear in the list, select 'Other'. If the resource does not have a language (for example, if it is a dataset or an image), select 'N / A' ..</hint>
+         <required>You must enter the language of the resource.</required>
 		 <vocabulary closed="true">idiomas</vocabulary>
        </field> 
 	   
@@ -99,31 +99,31 @@
          <dc-element>contributor</dc-element>
          <dc-qualifier>author</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Autores</label>
+         <label>Authors</label>
          <input-type>name</input-type>
-         <hint>Ingrese los nombres de los autores de este recurso.</hint>
-         <required>Debe ingresar el autor principal del recurso.</required>
+         <hint>Enter the names of the authors of this resource.</hint>
+         <required>You must enter the main author of the resource.</required>
        </field>
     	<field>
          <dc-schema>dc</dc-schema>
          <dc-element>creator</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>URL del Autor Principal</label>
+         <label>Main author's URL</label>
          <input-type>onebox</input-type>
 		 <displayed-value>URI</displayed-value>
          <stored-value>uri</stored-value>
-         <hint>Ingrese una URL (https://) del creador de este recurso.</hint>
-         <required>Debe ingresar la URL del autor principal del recurso.</required>
+         <hint>Enter the URL (https: //) of the creator of this resource.</hint>
+         <required>You must enter the URL of the main author of the resource.</required>
        </field>
 	   <field>
          <dc-schema>dc</dc-schema>
          <dc-element>contributor</dc-element>
          <dc-qualifier>advisor</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Revisor</label>
+         <label>Reviewer</label>
          <input-type>name</input-type>
-         <hint>Ingrese el nombre del revisor de este recurso.</hint>
+         <hint>Enter the name of the reviewer for this resource.</hint>
          <required></required>
        </field>
 	   <field>
@@ -133,7 +133,7 @@
          <repeatable>false</repeatable>
          <label>Editor</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el nombre del editor de este recurso.</hint>
+         <hint>Enter the name of the publisher of this resource.</hint>
          <required></required>
 		 <vocabulary closed="true">editores</vocabulary>
        </field>
@@ -142,43 +142,43 @@
          <dc-element>date</dc-element>
          <dc-qualifier>created</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Fecha de Creacion del recurso</label>
+         <label>Resource Creation Date</label>
          <input-type>date</input-type>
-         <hint>Por favor indique la fecha de creacion del recurso.
-                        Puede dejar en blanco el dia y / o mes si no
-                        aplica.</hint>
-         <required>Debe ingresar al menos el año.</required>
+         <hint>Please indicate the creation date of the resource.
+                         You can leave the day/month blank if it doesn't
+                         apply.</hint>
+         <required>You must enter at least the year.</required>
        </field>  
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>relation</dc-element>
          <dc-qualifier>hasversion</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Version del Recurso</label>
+         <label>Resource version</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese la Version del recurso.</hint>
-         <required>Debe ingresar la Version del Recurso.</required>
+         <hint>Enter the Version of the resource..</hint>
+         <required>You must enter the Resource Version.</required>
        </field>
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>date</dc-element>
          <dc-qualifier>updated</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Fecha de Actualizacion del recurso</label>
+         <label>Resource Update Date</label>
          <input-type>date</input-type>
-         <hint>Por favor indique la fecha de Actualizacion del recurso.
-                        Puede dejar en blanco el día y / o mes si no
-                        aplica.</hint>
-         <required>Debe ingresar al menos el año.</required>
+         <hint>Please indicate the update date of the resource.
+                         You can leave the day/month blank if it doesn't
+                         apply.</hint>
+         <required>You must enter at least the year.</required>
        </field>
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>identifier</dc-element>
          <dc-qualifier>citation</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Citacion</label>
+         <label>Citation</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese la citacion estandard para este recurso - Autores, Titulo, Publicacion, ISSN, volumen, numero, pagina inicial - final.</hint>
+         <hint>Enter the standard citation for this resource - Authors, Title, Publication, ISSN, volume, number, initial - last page.</hint>
          <required></required>
        </field>
        <field>
@@ -187,10 +187,10 @@
          <dc-qualifier></dc-qualifier>
          <!-- An input-type of qualdrop_value MUST be marked as repeatable -->
          <repeatable>true</repeatable>
-         <label>Identificadores</label>
+         <label>Identifiers</label>
          <input-type value-pairs-name="common_identifiers">qualdrop_value</input-type>
-         <hint>Si el recurso tiene algun numero de identificacion o codigo asociado 
-ingrese los tipos y los números o codigos de identificacion.</hint>
+         <hint>If the resource has any associated identification number or code
+                enter the types and numbers or identification codes.</hint>
          <required></required>
        </field>
 
@@ -200,11 +200,11 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>contributor</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Otros Contribuyentes</label>
+         <label>Other contributors</label>
          <input-type>onebox</input-type>
-         <hint>Seleccione los contribuyentes. Si no hay contribuyentes, seleccione 'N / A'..</hint>
+         <hint>Select the contributors. If there are no contributors, select 'N / A'.</hint>
          <required></required>
-		 <vocabulary closed="true">contribuyentes</vocabulary>
+		<vocabulary closed="true">contribuyentes</vocabulary>
        </field>
 
 		
@@ -218,10 +218,10 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-qualifier></dc-qualifier>
          <!-- An input-type of twobox MUST be marked as repeatable -->
          <repeatable>true</repeatable>
-         <label>Palabras Claves</label>
+         <label>Key Words</label>
          <input-type>twobox</input-type>
-         <hint>Ingrese palabras clave o frases tematicas apropiadas. </hint>
-         <required>Debe ingresar las palabras claves asociadas al recurso.</required>
+         <hint>Enter appropriate keywords or thematic phrases. </hint>
+         <required>You must enter the keywords associated with the resource.</required>
          <vocabulary>srsc</vocabulary>
        </field>
 	   <field>
@@ -229,10 +229,10 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>format</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Formato de Recurso</label>
+         <label>Resource Format</label>
          <input-type>onebox</input-type>
-         <hint>Seleccione el Formato del recurso.</hint>
-         <required>Debe ingresar el formato del recurso.</required>
+         <hint>Select the Format of the resource.</hint>
+         <required>You must enter the resource format.</required>
 		 <vocabulary closed="true">formatos</vocabulary>
        </field>  
 	   
@@ -241,9 +241,9 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>format</dc-element>
          <dc-qualifier>extent</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Tamaño (Gb, Mb) o duracion (Hr, Min o Seg)</label>
+         <label>Size (Gb, Mb) or Duration (Hr, Min or Seg)</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el tamaño (Gb, Mb), o la duracion del recurso (Hr, Min, Seg). </hint>
+         <hint>Enter the size (Gb, Mb), or the duration of the resource (Hr, Min, Sec). </hint>
          <required></required>
        </field>
        <field>
@@ -253,17 +253,17 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <repeatable>false</repeatable>
          <label>Abstract</label>
          <input-type>textarea</input-type>
-         <hint>Ingrese el Resumen o Abstract del recurso. </hint>
-         <required>Debe ingresar el resumen (abstract) del recurso.</required>
+         <hint>Enter the Summary or Abstract of the resource. </hint>
+         <required>You must enter the abstract of the resource.</required>
        </field>
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>description</dc-element>
          <dc-qualifier>sponsorship</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Patrocinadores / Sponsors</label>
+         <label>Sponsors</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese los nombres de los patrocinadores y / o codigos de financiacion. </hint>
+         <hint>Enter the names of the sponsors and/or funding codes. </hint>
          <required></required>
        </field>
        <field>
@@ -271,10 +271,10 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>description</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Descripcion Educativa - Competencias</label>
+         <label>Educational Description - Competences</label>
          <input-type>textarea</input-type>
-         <hint>Ingrese la descripcion educativa (intencionalidad educativa o meta a alcanzar a traves del contenido del recurso). </hint>
-         <required>Debe ingresar la descripcion educativa (competencias) del recurso.</required>
+         <hint>Enter the educational description (educational intent or goal to be achieved through the content of the resource).</hint>
+         <required>You must enter the educational description (skills) of the resource.</required>
        </field>
     </page>
 	<page number="3">
@@ -283,9 +283,9 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>relation</dc-element>
          <dc-qualifier>requires</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Requerimientos de tipo tecnico</label>
+         <label>Technical requirements</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el requerimiento tecnico (Software) principal para soportar instalacion o funcion del recurso. </hint>
+         <hint>Enter the main technical requirement (Software) to support installation or function of the resource.</hint>
          <required></required>
     </field>
 	
@@ -294,9 +294,9 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>relation</dc-element>
          <dc-qualifier>minimunversion</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Version Minima</label>
+         <label>Minimum version</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese la version minima del requerimiento tecnico, necesario para este recurso.</hint>
+         <hint>Enter the minimum version of the technical requirement, necessary for this resource.</hint>
          <required></required>
     </field>
 	
@@ -305,31 +305,31 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>rights</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Copyright y Otras Restricciones</label>
+         <label>Copyright and Other Restrictions</label>
          <input-type>textarea</input-type>
-         <hint>Ingrese las restricciones de licenciamiento estipuladas para el recurso. </hint>
-         <required>Debe ingresar el Copyright del recurso.</required>
+         <hint>Enter the licensing restrictions stipulated for the resource. </hint>
+         <required>You must enter the Copyright of the resource.</required>
      </field>
 	   <field>
          <dc-schema>dc</dc-schema>
          <dc-element>rights</dc-element>
          <dc-qualifier>uri</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>URL de los derechos del recurso</label>
+         <label>Resource rights URL</label>
          <input-type>onebox</input-type>
 		 <displayed-value>URI</displayed-value>
          <stored-value>uri</stored-value>
-         <hint>Ingrese una URL - https:// - de los derechos del recurso.</hint>
-         <required>Debe ingresar la descripcion de los derechos del recurso.</required>
+         <hint>Enter a URL - https: // - of the resource rights.</hint>
+         <required>You must enter the description of the resource rights.</required>
        </field>
 	   <field>
          <dc-schema>dc</dc-schema>
          <dc-element>rights</dc-element>
          <dc-qualifier>cost</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Costo de los Derechos y Copyright</label>
+         <label>Cost of Rights and Copyright</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el costo de los derechos y copyright del recurso - si aplica</hint>
+         <hint>Enter the cost of the rights and copyright of the resource - if applicable</hint>
          <required></required>
        </field>
       <field>
@@ -337,21 +337,21 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>date</dc-element>
          <dc-qualifier>copyright</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Fecha de licenciamiento del recurso</label>
+         <label>Resource licensing date</label>
          <input-type>date</input-type>
-         <hint>Por favor indique la fecha en que se asignaron los derechos del recurso.
-                        Puede dejar de lado el dia y / o mes si no
-                        aplica.</hint>
-         <required>Debe ingresar al menos el año.</required>
+         <hint>Please indicate the date when resource rights were assigned.
+                         You can leave out the day and / or month if not
+                         apply.</hint>
+         <required>You must enter at least the year.</required>
        </field>
 	<field>
 	 <dc-schema>dc</dc-schema>
 	 <dc-element>description</dc-element>
 	 <dc-qualifier>educationlevel</dc-qualifier>
 	 <repeatable>true</repeatable>
-	 <label>Nivel Educativo</label>
+	 <label>Education level</label>
 	 <input-type>onebox</input-type>
-	 <hint>Ingrese el nivel educativo de la audiencia a la cual va dirigida el recurso</hint>
+	 <hint>Enter the educational level of the audience to which the resource is directed</hint>
 	<vocabulary closed="true">niveleducativo</vocabulary>
    </field>
 	</page>
@@ -361,10 +361,10 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>description</dc-element>
          <dc-qualifier>audience</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Audiencia</label>
+         <label>Audience</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese la Audiencia a la cual va dirigida el recurso</hint>
-         <required>Debe ingresar la audiencia del recurso.</required>
+         <hint>Enter the audience to which is directed</hint>
+         <required>You must enter the appeal hearing.</required>
 		 <vocabulary closed="true">audiencia</vocabulary>
        </field>	   
 	   <field>
@@ -372,9 +372,9 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>description</dc-element>
          <dc-qualifier>typicalAgeRange</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Rango tipico de edad de la audiencia</label>
+         <label>Typical age range of the audience</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el rango tipico de edad de la Audiencia a la cual va dirigida el recurso</hint>
+         <hint>Enter the typical age range of the Audience to which the appeal is directed</hint>
          <required></required>
        </field>
 	   <field>
@@ -382,9 +382,9 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>description</dc-element>
          <dc-qualifier>KnowledgeGrouping</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Contexto Educativo</label>
+         <label>Educational Context</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el contexto educativo de la audiencia a la cual va dirigida el recurso</hint>
+         <hint>Enter the educational context of the audience to which the resource is directed</hint>
          <required></required>
 		 <vocabulary closed="true">contextoeducativo</vocabulary>
        </field>
@@ -393,9 +393,9 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>description</dc-element>
          <dc-qualifier>interactivitylevel</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Nivel de Interactividad</label>
+         <label>Interactivity level</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el nivel de interactividad del recurso</hint>
+         <hint>Enter the level of interactivity of the resource</hint>
          <required></required>
 		 <vocabulary closed="true">nivelinteractividad</vocabulary>
        </field>	   
@@ -404,9 +404,9 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>description</dc-element>
          <dc-qualifier>interactivityType</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Tipo de Interactividad</label>
+         <label>Interactivity Type</label>
          <input-type>onebox</input-type>
-         <hint>Seleccione  el tipo de interactividad del recurso.</hint>
+         <hint>Select the type of resource interactivity.</hint>
          <required></required>
 		 <vocabulary closed="true">tipointeractividad</vocabulary>
        </field>
@@ -415,9 +415,9 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>relation</dc-element>
          <dc-qualifier>annotationentity</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Anotacion realizada: Entidad</label>
+         <label>Annotation made: Entity</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese la entidad que realiza la anotacion en el recurso</hint>
+         <hint>Enter the entity that makes the annotation in the resource.</hint>
          <required></required>
        </field>
 	   <field>
@@ -425,9 +425,9 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>relation</dc-element>
          <dc-qualifier>annotationdesc</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Anotacion realizada: Descripcion</label>
+         <label>Annotation made: Description</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese la descripcion de la anotacion en el recurso</hint>
+         <hint>Enter the description of the annotation in the resource</hint>
          <required></required>
        </field>
 	   <field>
@@ -435,11 +435,11 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>relation</dc-element>
          <dc-qualifier>annotationdate</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Fecha en que se realizo la anotacion del recurso</label>
+         <label>Date on which the annotation of the resource was made</label>
          <input-type>date</input-type>
-         <hint>Por favor indique la fecha en que se realizo la anotacion del recurso.
-                        Puede dejar de lado el dia y / o mes si no
-                        aplica. Debe ingresar al menos el año.</hint>
+         <hint>Please indicate the date the resource was entered.
+                         You can leave out the day and / or month if not
+                         apply. You must enter at least the year.</hint>
          <required></required>
        </field>
 	  <field>
@@ -447,10 +447,10 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>relation</dc-element>
          <dc-qualifier>institution</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Tipo de institucion donde se construyo el recurso</label>
+         <label>Type of institution where the resource was built</label>
          <input-type>onebox</input-type>
-         <hint>Seleccione el tipo de entidad para la cual se construyo el recurso</hint>
-         <required>Debe ingresar el tipo de institucion.</required>
+         <hint>Type of institution where the resource was built</hint>
+         <required>You must enter the type of institution.</required>
 		 <vocabulary closed="true">institucion</vocabulary>
        </field>
 	   <field>
@@ -458,19 +458,19 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>relation</dc-element>
          <dc-qualifier>organization</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Nombre de la institucion donde se construyo el recurso</label>
+         <label>Name of the institution where the resource was built</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el nombre de la entidad para la cual se construyo el recurso</hint>
-         <required>Debe ingresar el nombre de institucion</required>
+         <hint>Enter the name of the entity for which the resource was built</hint>
+         <required>You must enter the name of the institution</required>
        </field>
 	   <field>
          <dc-schema>dc</dc-schema>
          <dc-element>relation</dc-element>
          <dc-qualifier>group</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Tipo de grupo para el cual se construyo el recurso</label>
+         <label>Group type for which the resource was built</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el nombre del grupo para el cual se construyo el recurso</hint>
+         <hint>Enter the name of the group for which the resource was built</hint>
          <required></required>
 		 <vocabulary closed="true">grupo</vocabulary>
        </field>
@@ -479,9 +479,9 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>relation</dc-element>
          <dc-qualifier>division</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Nombre del Dpto, Programa o Facultad de la institucion donde se construyo el recurso</label>
+         <label>Name of the Department, Program or Faculty of the institution where the resource was built</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el nombre del Dpto para la cual se construyo el recurso</hint>
+         <hint>Enter the name of the Department for which the resource was built</hint>
          <required></required>
        </field>
 	   <field>
@@ -489,19 +489,19 @@ ingrese los tipos y los números o codigos de identificacion.</hint>
          <dc-element>relation</dc-element>
          <dc-qualifier>EducationalSubject</dc-qualifier>
          <repeatable>true</repeatable>
-         <label>Area (Dominio de conocmiento o taxon) al cual pertenece el recurso</label>
+         <label>Area (Knowledge domain or taxon) to which the resource belongs</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese el area de la tematica principal del recurso</hint>
-         <required>Debe ingresar el area en la que se circunscribe el recurso</required>
+         <hint>Enter the main theme area of the resource</hint>
+         <required>You must enter the area in which the resource is circumscribed</required>
        </field>
 		<field>
          <dc-schema>dc</dc-schema>
          <dc-element>relation</dc-element>
          <dc-qualifier>course</dc-qualifier>
          <repeatable>false</repeatable>
-         <label>Curso (Materia) al cual pertenece el recurso</label>
+         <label>Course (Subject) to which the resource belongs</label>
          <input-type>onebox</input-type>
-         <hint>Ingrese la materia del recurso</hint>
+         <hint>Enter the resource material</hint>
          <required></required>
        </field>
      </page>
